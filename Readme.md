@@ -22,7 +22,7 @@ Liens utiles :
 - Site officiel :[ https://www.pgadmin.org/ ](https://www.pgadmin.org/) 
 - Docker Hub officiel:[ https://hub.docker.com/r/dpage/pgadmin4/ ](https://hub.docker.com/r/dpage/pgadmin4/) 
 
-Le site web vitrine a été conçu par l’équipe de développeurs de l’entreprise et les fichiers y relatifs se trouvent dans le repo suscité : [ https://github.com/eazytraining/projet-fils-rouge.git ](https://github.com/eazytraining/projet-fils-rouge.git) . Il est de votre responsabilité de conteneuriser cette application tout en permettant la saisie des différentes URL des applications (Odoo et pgadmin) par le biais des variables d’environnement. 
+Le site web vitrine a été conçu par l’équipe de développeurs de l’entreprise et les fichiers y relatifs se trouvent dans le repo suscité : [ https://github.com/Legeni07/projet_final.git ](https://github.com/Legeni07/projet_final.git) . Il est de votre responsabilité de conteneuriser cette application tout en permettant la saisie des différentes URL des applications (Odoo et pgadmin) par le biais des variables d’environnement. 
 
 Ci-dessous un aperçu du site vitrine attendu. 
 
@@ -61,9 +61,9 @@ L'objectif de ICGROUP est en effet de mettre sur pied un pipeline CI/CD permetta
 Pour ce projet, on aura besoin de 03 serveurs hébergées soit dans le cloud ou en On Premises (VirtualBox, VMWare…) pour ceux qui n’ont pas de comptes cloud (AWS, AZURE ou autres).
 Les serveurs nécessaires sont les suivants :
 
-        1) **Serveur 1** : Jenkins (AWS, t2.medium, docker_jenkins: https://github.com/eazytraining/projet-fils-rouge/tree/main/jenkins-tools)
-        2) **Serveur 2** : Applications web site vitrine + pgadmin4 (AWS, t2.micro)
-        3) **Serveur 3** : Application Odoo (AWS, t2.micro)
+        1) **Serveur 1** : Jenkins (VM ou Conteneur, docker_jenkins: https://github.com/Legeni07/projet_final/tree/main/jenkins-tools)
+        2) **Serveur 2** : Applications web site vitrine + pgadmin4 (VM ou Conteneur)
+        3) **Serveur 3** : Application Odoo (VM ou Conteneur)
 
 
 ### **c. Automatisation du déploiement**
@@ -151,14 +151,3 @@ Notez également que l’ensemble de ces ressources devront être crées dans un
 
 Lancez l’exécution de vos différents manifests afin de déployer les différents services ou applications demandés, testez le bon fonctionnement de vos différentes application et n’hésitez pas à prendre des captures d’écran le plus possible afin de consolider votre travail dans un rapport final qui présentera dans les moindre détails ce que vous avez fait.
 
-## **4) ANNEXE** 
-
-Ci-dessous un exemple de description des qualifications souhaitées pour un poste de Devops 
-
-![](images/offre_emploi.jpeg)
-
-**NB** : Bien vouloir preter attention aux qualités encadrées en jaune ci-dessus, vous vous rendez compte en effet que maitriser les technologies seulement ne suffit pas, il faut en plus de ca avoir un esprit très créatif, de très bonnes capacités redactionnelles pour rediger vos différents rapports et également des qualités de pédagogue qui vous aideront à parfaire les explications de vos actions dans vos différents rapports afin de faciliter leur compréhension. 
-
-Compte tenu de tout cela, je vous invite tous à donner l’impotance à ce volet « rapport » de votre projet final, car c’est également une partie très importante qui devra pouvoir décrire le contenu de l’ensemble de votre travail.  
-
-Merci de le rédiger correctement avec les captures d’écran, commentaires et explications qui vont bien car cette partie sera prise en compte dans votre note finale.
