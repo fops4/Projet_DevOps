@@ -150,4 +150,3 @@ Notez également que l’ensemble de ces ressources devront être crées dans un
  ### **e. Test de fonctionnement et rapport final** 
 
 Lancez l’exécution de vos différents manifests afin de déployer les différents services ou applications demandés, testez le bon fonctionnement de vos différentes application et n’hésitez pas à prendre des captures d’écran le plus possible afin de consolider votre travail dans un rapport final qui présentera dans les moindre détails ce que vous avez fait.
-
