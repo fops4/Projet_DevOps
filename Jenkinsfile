@@ -3,17 +3,26 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                sh 'echo "Building the project..."'
+                script {
+                    // Construire l'image Docker
+                    sh 'docker-compose -f roles/odoo_role/templates/docker-compose.yml build'
+                }
             }
         }
         stage('Test') {
             steps {
-                sh 'echo "Running tests..."'
+                script {
+                    // Tester la connectivité et les réponses HTTP
+                    sh 'curl -I http://localhost:8069 || exit 1'
+                }
             }
         }
         stage('Deploy') {
             steps {
-                sh 'echo "Deploying to production..."'
+                script {
+                    // Déployer avec Ansible
+                    ansiblePlaybook playbook: 'ansible/playbook.yml', inventory: 'ansible/inventory.ini'
+                }
             }
         }
     }

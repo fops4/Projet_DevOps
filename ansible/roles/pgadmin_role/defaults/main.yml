@@ -1,0 +1,9 @@
+---
+docker_network_name: pgadmin_network
+pgadmin_volume_name: pgadmin_data
+pgadmin_container_name: pgadmin_container
+docker_compose_path: /opt/pgadmin
+pgadmin_image: dpage/pgadmin4:latest
+pgadmin_port: 5050
+pgadmin_email: admin@domain.com
+pgadmin_password: admin123

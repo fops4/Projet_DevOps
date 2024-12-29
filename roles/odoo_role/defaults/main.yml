@@ -1,5 +1,0 @@
-odoo_network: odoo-net
-odoo_data_volume: odoo-data
-db_data_volume: db-data
-odoo_password: "odoo_password"
-postgres_password: "odoo_password"

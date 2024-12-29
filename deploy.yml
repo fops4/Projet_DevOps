@@ -1,0 +1,7 @@
+- hosts: odoo_server
+  roles:
+    - odoo_role
+
+- hosts: pgadmin_server
+  roles:
+    - pgadmin_role

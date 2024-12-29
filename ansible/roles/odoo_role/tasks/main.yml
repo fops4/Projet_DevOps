@@ -1,0 +1,30 @@
+---
+- name: Créer le réseau Docker (si nécessaire)
+  docker_network:
+    name: "{{ docker_network_name }}"
+    state: present
+
+- name: Créer le volume Docker pour Odoo
+  docker_volume:
+    name: "{{ odoo_volume_name }}"
+    state: present
+
+- name: Copier le fichier docker-compose.yml
+  template:
+    src: docker-compose.yml.j2
+    dest: "{{ docker_compose_path }}/docker-compose.yml"
+
+- name: Démarrer le service Odoo avec Docker Compose
+  community.docker.docker_compose:
+    project_src: "{{ docker_compose_path }}"
+    state: present
+
+- name: Vérifier que le conteneur est en cours d'exécution
+  community.docker.docker_container_info:
+    name: "{{ odoo_container_name }}"
+  register: odoo_container_status
+
+- name: Vérification - Conteneur Odoo en fonctionnement
+  debug:
+    msg: "Le conteneur Odoo est en cours d'exécution."
+  when: odoo_container_status.container.State.Running == true

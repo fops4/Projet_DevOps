@@ -1,4 +1,0 @@
-pgadmin_network: pgadmin-net
-pgadmin_data_volume: pgadmin-data
-pgadmin_email: "admin@admin.com"
-pgadmin_password: "admin_password"
