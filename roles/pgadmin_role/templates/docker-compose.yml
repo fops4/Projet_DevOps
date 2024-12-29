@@ -1,0 +1,14 @@
+version: '3'
+services:
+  pgadmin:
+    image: dpage/pgadmin4
+    ports:
+      - "5050:80"
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_URL: "{{ lookup('file', 'releases.txt') | regex_search('PGADMIN_URL\\s+(.*)', '\\1') }}"
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+volumes:
+  pgadmin-data:

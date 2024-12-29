@@ -1,0 +1,12 @@
+version: '3'
+services:
+  odoo:
+    image: odoo:13.0
+    ports:
+      - "8069:8069"
+    volumes:
+      - odoo-data:/var/lib/odoo
+    environment:
+      - ODOO_URL={{ lookup('file', 'releases.txt') | regex_search('ODOO_URL\s+(.*)', '\\1') }}
+volumes:
+  odoo-data:

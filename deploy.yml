@@ -1,7 +1,4 @@
-- hosts: odoo_server
+- hosts: localhost
   roles:
     - odoo_role
-
-- hosts: pgadmin_server
-  roles:
     - pgadmin_role

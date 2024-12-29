@@ -1,0 +1,6 @@
+- name: Déployer pgAdmin avec Docker Compose
+  docker_compose:
+    project_src: "{{ playbook_dir }}"
+    files:
+      - "{{ playbook_dir }}/roles/pgadmin_role/templates/docker-compose-pgadmin.yml.j2"
+    state: present
