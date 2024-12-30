@@ -3,7 +3,7 @@ pipeline {
 
     environment {
         // Variables d'environnement
-        DOCKER_IMAGE = 'ic-webapp:1.0'
+        DOCKER_IMAGE = 'fops4/ic-webapp:1.0'
         RELEASES_FILE = 'releases.txt'
     }
 
