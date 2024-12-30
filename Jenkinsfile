@@ -8,14 +8,6 @@ pipeline {
     }
 
     stages {
-        stage('Test Docker Access') {
-            steps {
-                script {
-                    echo 'Testing Docker connection from Jenkins...'
-                    sh 'docker info'
-                }
-            }
-        }
         stage('Check Docker') {
             steps {
                 script {
