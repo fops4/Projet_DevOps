@@ -10,10 +10,22 @@ pipeline {
     stages {
         stage('Check Docker') {
             steps {
-                sh 'docker --version'
-                sh 'docker-compose --version'
+                script {
+                    // Vérification de la version Docker
+                    echo 'Checking Docker version...'
+                    sh 'docker --version'
+
+                    // Vérification de la version de docker-compose
+                    echo 'Checking Docker Compose version...'
+                    sh 'docker-compose --version'
+
+                    // Vérification de l'accès à Docker en testant une commande simple
+                    echo 'Testing Docker connection...'
+                    sh 'docker info || exit 1'
+                }
             }
         }
+
         stage('Build') {
             steps {
                 script {
