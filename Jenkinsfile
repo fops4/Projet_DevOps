@@ -2,6 +2,7 @@ pipeline {
     agent any
 
     environment {
+        PATH = "/usr/bin:$PATH"
         DOCKER_IMAGE = 'fops4/ic-webapp:1.0'
         RELEASES_FILE = 'releases.txt'
     }
@@ -46,6 +47,21 @@ pipeline {
             }
         }
 
+        stage('Push to Docker Hub') {
+            steps {
+                withCredentials([string(credentialsId: 'docker-hub-credentials', variable: 'DOCKER_PASSWORD')]) {
+                    script {
+                        echo 'Pushing Docker image to Docker Hub...'
+                        sh '''
+                            echo "$DOCKER_PASSWORD" | docker login -u fops4 --password-stdin
+                            docker tag ${DOCKER_IMAGE} fops4/${DOCKER_IMAGE}
+                            docker push fops4/${DOCKER_IMAGE} || { echo "Failed to push Docker image."; exit 1; }
+                        '''
+                    }
+                }
+            }
+        }
+
         stage('Deploy') {
             steps {
                 script {
@@ -60,7 +76,7 @@ pipeline {
             steps {
                 script {
                     echo 'Running tests...'
-                    sh "curl -f http://localhost:8080 || { echo \"Application is not accessible.\"; exit 1; }"
+                    sh "curl -f http://localhost:8481 || { echo \"Application is not accessible.\"; exit 1; }"
                     echo 'Application is up and running.'
                 }
             }
