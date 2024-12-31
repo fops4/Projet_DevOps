@@ -11,10 +11,10 @@ pipeline {
             steps {
                 script {
                     echo 'Checking Docker version...'
-                    sh 'docker --version || exit 1'
+                    sh 'docker --version || { echo "Docker is not installed or not available. Please check your environment."; exit 1; }'
 
                     echo 'Checking Docker Compose version...'
-                    sh 'docker-compose --version || exit 1'
+                    sh 'docker-compose --version || { echo "Docker Compose is not installed. Please install it."; exit 1; }'
 
                     echo 'Testing Docker connection...'
                     sh 'docker info || { echo "Docker connection failed: Check permissions to access the Docker daemon."; exit 1; }'
@@ -26,8 +26,13 @@ pipeline {
             steps {
                 script {
                     echo 'Checking Ansible installation...'
-                    sh 'which ansible || { echo "Ansible is not installed. Please install Ansible."; exit 1; }'
-                    sh 'ansible --version || exit 1'
+                    sh '''
+                        if ! which ansible > /dev/null; then
+                            echo "Ansible is not installed. Please install it using your package manager."
+                            exit 1
+                        fi
+                    '''
+                    sh 'ansible --version || { echo "Failed to verify Ansible version."; exit 1; }'
                 }
             }
         }
