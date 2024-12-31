@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: odoo-service
+  namespace: icgroups
+spec:
+  selector:
+    app: odoo
+  ports:
+    - protocol: TCP
+      port: 86       # Port exposé par le service
+      targetPort: 8069  # Port du pod Odoo
+  type: ClusterIP

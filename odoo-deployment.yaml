@@ -1,0 +1,24 @@
+# odoo-deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: odoo
+  namespace: icgroups
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: odoo
+  template:
+    metadata:
+      labels:
+        app: odoo
+    spec:
+      containers:
+        - name: odoo
+          image: odoo:13
+          env:
+            - name: DB_HOST
+              value: odoo-db
+          ports:
+            - containerPort: 8069

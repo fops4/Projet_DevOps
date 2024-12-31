@@ -1,0 +1,13 @@
+# odoo-pv.yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: odoo-pvs
+  namespace: icgroups
+spec:
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  hostPath:
+    path: "/mnt/data/odoo"
