@@ -4,7 +4,6 @@ pipeline {
     environment {
         DOCKER_IMAGE = 'fops4/ic-webapp:1.0'
         RELEASES_FILE = 'releases.txt'
-        PATH = "/usr/bin:/usr/local/bin:${env.PATH}"
     }
 
     stages {
