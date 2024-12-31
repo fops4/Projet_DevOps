@@ -30,6 +30,15 @@ pipeline {
             }
         }
 
+        stage('Check Ansible') {
+            steps {
+                script {
+                    echo 'Checking Ansible installation...'
+                    sh 'ansible --version || exit 1'
+                }
+            }
+        }
+
         stage('Build') {
             steps {
                 script {
