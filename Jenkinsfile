@@ -28,12 +28,12 @@ pipeline {
                 script {
                     echo 'Checking Ansible installation...'
                     sh '''
-                        if ! which ansible > /dev/null; then
+                        if ! command -v ansible &> /dev/null; then
                             echo "Ansible is not installed. Please install it using your package manager."
                             exit 1
                         fi
+                        ansible --version
                     '''
-                    sh 'ansible --version || { echo "Failed to verify Ansible version."; exit 1; }'
                 }
             }
         }
